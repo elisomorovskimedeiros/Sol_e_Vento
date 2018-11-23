@@ -1,0 +1,40 @@
+
+{
+    "Eolico": {
+        "giro": "700",
+        "tensao": "",
+        "corrente": "",
+        "canalTensao": "14",
+        "canalCorrente": "4",
+        "freio": "0",
+        "isOnline": "0" },
+
+    "Solar": {
+        "tensao": "",
+        "corrente" : "",
+        "canalTensao" : "1",
+        "canalCorrente" : "5",
+        "isOnline" : "0" },
+  
+    "Baterias": {
+        "tensao" : "14",
+        "corrente" : "",
+        "autonomia" : "",
+        "canal" : "3",
+        "canalCorrente" : "6",
+        "isOnline" : "1" },
+
+    "Carga1" : {
+        "consumo" : "",
+        "potencia" : "",
+        "isOnline" : "1" },
+
+    "Carga2": {
+        "consumo": "",
+        "potencia": "",
+        "isOnline": "0" }
+}
+
+
+    
+

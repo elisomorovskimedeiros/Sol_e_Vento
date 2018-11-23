@@ -1,0 +1,174 @@
+
+
+.tam-min {
+	min-height: 80px;
+	}
+
+.div_conteudo {
+		background-color: #eee;
+		margin: 10px;
+		border-radius:3px;			
+		}
+#header {
+	
+	background-image: url("../imagens/sol_e_vento.jpg");
+	text-shadow: 3px 2px rgb(48, 50, 51);
+	font-size: 3em;	
+	color: antiquewhite;
+	background-size: cover;
+	height:398px;
+	margin-bottom: 15px;
+}
+
+#div_header {
+	padding-top: auto;
+	padding-bottom: auto;
+}
+
+.titulo{
+	font-size: 3.2em;	
+}
+
+.switch {
+	position: absolute;
+	margin-left: -9999px;
+	visibility: hidden;
+  }
+  
+  .switch + label {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	user-select: none;
+  }
+
+  .switch--shadow + label {
+	padding: 2px;
+	width: 120px;
+	height: 60px;
+	background-color: #dddddd;
+	border-radius: 60px;
+  }
+
+  .switch--shadow + label:before,
+.switch--shadow + label:after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";
+}
+.switch--shadow + label:before {
+  right: 1px;
+  background-color: #f1f1f1;
+  border-radius: 60px;
+  transition: all 0.4s;
+}
+.switch--shadow + label:after {
+  width: 62px;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s;
+}
+
+.switch--shadow:checked + label:before {
+	background-color:  #8ce196;
+  }
+  .switch--shadow:checked + label:after {
+	transform: translateX(60px);
+	}
+
+.displayMedidas{
+	padding: 0.3em;
+	width: 5em;
+	height: 2em;
+	background-color:  #dddddd;
+	border-radius: 100px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	text-align: center;
+	font-size: 5em;
+}
+#tituloMedidores{
+	text-align: center;
+}
+
+#div_img_login{
+	padding:20%;
+	background-image: url(/imagens/logotipo_sol_e_vento.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 80%;
+}
+
+div.flex-align {
+  display: flex;
+  align-items: center;
+	height: 100%;
+	padding-top: 12%
+}
+
+.divLogin{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 35em;
+}
+
+.divGeradores{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 25em;
+}
+
+#textoStatusBaterias{
+	font-size: 30px;
+}
+
+.parte-usina{
+	height: 20em;
+}
+
+@media (max-width: 767px) {
+	#header{
+		font-size: 20px;
+		background-image: url("../imagens/sol_e_vento_sm.jpg");
+		height:200px;
+	}
+
+
+	.table-responsive {
+		display: block;
+		position: relative;
+		width: 100%;
+	}
+	
+	.table-responsive thead,
+	.table-responsive tbody,
+	.table-responsive th,
+	.table-responsive td,
+	.table-responsive tr {
+		display: block;		
+	}/*
+	.table-responsive td,
+	.table-responsive th {
+  	height: 35px;
+	}	
+	.table-responsive thead {
+		float: left;
+	}
+	.table-responsive tbody {
+		width: auto;
+		position: relative;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		white-space: nowrap;
+	}*/
+	.table-responsive tbody tr {
+		display: inline-block;
+	}
+	.col-xs{
+		size: 20;
+	}
+}

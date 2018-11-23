@@ -1,0 +1,107 @@
+<% include partials/cabecalho %>
+<%var Usina = usinaNova%>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container" onload="carregarValores()" >
+    <div>
+        <h1>
+            Contrução de um novo arranjo
+        </h1>
+
+        <h3>
+            O sistema possui capacidade máxima de monitoramento de um gerador eólico, um conjunto paralelo de módulos solares e um banco de baterias funcionando em arranjo de 12V.
+        </h3>
+       
+            <form action="/new" method="POST" name="login">
+    
+        <div class="divLogin form-group" id='ondeGuardeiOId' value = <%=Usina.id%></div>
+        <fieldset>
+            <table class="table table-responsive table-striped table-hover">
+            <h3><strong>Login:<span id="avisoErroLogin"></span></span></strong></h3>                  
+                <tr><td>Nome do usuario: </td><td><input type="text" id="usuario" onblur="verificaUsuario(this)" class="form-control" size="40" value = <%=Usina.usuario%> ></td></tr>
+                <tr><td>Senha:  </td><td><input type="password" id="senha" class="form-control" size="40"></td></tr>
+                <tr><td>Repita a senha:  </td><td><input type="password" id="senhaRepetida" class="form-control" size="40"></td></tr>                                                 
+            </table>
+            <div><input type="button" id="adlogin" value = "Adicionar Login" onclick="adLogin()"><br>
+        </fieldset>
+</div>         
+<!--
+        <div class="divCadastro container">
+            <fieldset>
+                <table>
+                <h3><strong>Usina:<span id="avisoErroUsina" ></span></strong></h3>       
+                    <tr><td>Nome da Usina: </td><td><input type="text" id="nome"  size="40" value = <%=Usina.nomeUsina%> ></td></tr>
+                    <tr><td>Endereço:  </td><td><input type="text" id="endereco"  size="40" value = <%=Usina.endereco%>></td></tr>
+                    <tr><td>Cidade:&nbsp;&nbsp;  </td><td><input type="text" id="cidade" size="40" value = <%=Usina.cidade%>></td></tr>          
+                </table>
+                <input type="button" id="adusina" value = "Adicionar Usina" onclick="adUsina()"><br>
+            </fieldset>
+        </div>
+-->     
+        <div class="divGeradores form-group">   
+            <fieldset>
+                    <h3><strong>Adicionar gerador eólico:<span id="avisoErroEolico" value = <%=Usina.eolicoContem%></span></span></strong></h3> 
+                <table class="table  table-responsive table-striped table-hover">
+                    <th colspan="100%">Os valores devem ser visualizados no manual do equipamento. <br>Por padrão o sistema já preenche os valores mais comuns</th>
+                    <tr><td>Giro máximo:</td><td><input type="number" id="giroMax" class="form-control" value = <%=Usina.eolicoGiro%>></td></tr>
+                    <tr><td>Tensão máxima:</td><td><input type="number" id="tensaoMaxEolico" class="form-control" value = <%=Usina.eolicoTensaoMax%>></td></tr>
+                    <tr><td>Número de polos:&nbsp;&nbsp;</td><td><input type="number" id="numPolos" class="form-control" value = <%=Usina.eolicoNumPolos%>></td></tr>
+                    
+                </table>
+                <input type="button" id="adeolico" value = "Adicionar Gerador Eólico" onclick="adEolico('avisoErroEolico')"><br>
+            </fieldset>
+        </div>
+
+        <div class="divGeradores form-group">
+            <fieldset >
+                <h3><strong>Adicionar gerador solar:<span id="avisoErroSolar"></span></strong></h3> 
+                <h4>Sua usina terá um painel solar?</h4>  
+                <p id="campoAvisoSolar" value = <%=Usina.solarContem%>></p>     
+                <input type="button" id="adsolar" value = "Adicionar Painel Solar" onclick="adSolar('campoAvisoSolar')"><br>
+            </fieldset>
+        </div>
+
+        <div class="divGeradores form-group">
+            <fieldset>
+                
+                    <h3><strong>Adicionar banco de baterias:<span id="avisoErroBaterias" value = <%=Usina.bateriasContem%>></span></strong></h3>
+                <table class="table  table-responsive table-striped table-hover">
+                    <th colspan="100%">Os valores devem ser visualizados no manual do equipamento. <br>Por padrão o sistema já preenche os valores mais comuns</th>
+                    <tr><td>Capacidade do banco: </td><td><input type="number" id="cap" class="form-control" value = <%=Usina.bateriasCapacidade%>></td></tr>
+                    <tr><td>Tensão mínima: </td><td><input type="number" id="tensaoMinBaterias" class="form-control" value = <%=Usina.bateriasTensaoMin%>></td></tr>
+                    <tr><td>Tensão máxima:&nbsp;&nbsp; </td><td><input type="number" id="tensaoMaxBaterias" class="form-control" value = <%=Usina.bateriasTensaoMax%>></td></tr>
+                </table>
+                <input type="button" id="adbaterias" value = "Adicionar Banco de Baterias" onclick="adBaterias('avisoErroBaterias')"><br>
+            </fieldset>
+        </div>
+
+        <div class="divGeradores form-group">
+                <fieldset >
+                    <h3><strong>Adicionar circuito consumidor 1:<span id="campoErroCarga1" value = <%=Usina.carga1Contem%>></span></strong></h3>                     
+                    <tr><td>Qual o nome do circuito? (ex.: Sala) </td><td><input type="text" id="carga1Nome" class="form-control" value = <%=Usina.carga1Nome%>></td></tr>    
+                    <input type="button" id="adcarga1" value = "Adicionar a primeira carga" onclick="adCarga1('campoErroCarga1')"><br>
+                </fieldset>
+        </div>
+
+        <div class="divGeradores form-group">
+                <fieldset >
+                    <h3><strong>Adicionar circuito consumidor 2:<span id="avisoErroCarga2" value = <%=Usina.carga2Contem%>></span></strong></h3>                     
+                    <tr><td>Qual o nome do circuito? (ex.: Cozinha) </td><td><input type="text" id="carga2Nome" class="form-control"  value = <%=Usina.carga2Nome%>></td></tr>    
+                    <input type="button" id="adcarga2" value = "Adicionar a segunda carga" onclick="adCarga2('avisoErroCarga2')"><br>
+                </fieldset>
+        </div>
+            
+            <input type="button" id="finalize" value = "Finalizar cadastro" class="col-xs-4" ><br>
+        
+        <div id="campoErroSubmit"></div>
+    </form>
+        
+  
+    </div>
+
+
+   
+
+</div>
+
+
+<% include partials/rodape %>

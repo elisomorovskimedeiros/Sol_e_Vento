@@ -1,0 +1,1 @@
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'sol_e_vento';

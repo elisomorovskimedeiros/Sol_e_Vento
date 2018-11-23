@@ -1,0 +1,98 @@
+<% include partials/cabecalho_index %>
+     
+      <header class="page-heading" id="header" >
+      <div class="container text-center">
+        <div class="titulo">Sol e Vento</div>
+        <p>Sistema de gerenciamento de micro geração de energia</p>
+      </div>
+    </header>
+    
+  
+      <div class="container">
+        <!-- Componentes da parte principal do site -->
+        <div class="row">
+          <%if (Usina.eolicoContem || Usina.solarContem){%>
+            <div class=" col-md-6">
+              <div class= "jumbotron">
+                <h1>Geradores</h1>
+                
+                <%if(Usina.eolicoContem){%>            
+                  <p>
+                    <a class="btn btn-lg btn-primary" href="/eolico" role="button">Aerogerador »</a>
+                  </p>
+                <%}%>
+                <%if(Usina.solarContem){%>
+                  <p>
+                    <a class="btn btn-lg btn-primary" href="/solar" role="button">Painel Solar »</a>
+                  </p>
+                <%}%>              
+              </div>          
+            </div>
+          <%}%>
+          
+          <%if (Usina.carga1Contem || Usina.carga2Contem){%>
+            <div class="col-md-6">
+              <div class= "jumbotron">
+                  <h1>Cargas</h1>	
+                    	
+                      <%if(Usina.carga1Contem){%>             
+                        <div id="carga1">
+                            <h3><%=Usina.carga1Nome%></h3>
+                          <div class="switch__container"><!--retirado de https://willianjusten.com.br/criando-um-switch-button-com-css/-->
+                            <input id="switch-shadow_carga1" class="switch switch--shadow" type="checkbox" onclick="chaveCarga1()">
+                            <label for="switch-shadow_carga1"></label>
+                          </div>
+                          
+                        </div>
+                      <%}%>
+                      <%if(Usina.carga2Contem){%>
+                        <div id="carga2">
+                          <h3><%=Usina.carga2Nome%></h3>
+                          <div class="switch__container"><!--retirado de https://willianjusten.com.br/criando-um-switch-button-com-css/-->
+                            <input  class="switch switch--shadow" id="switch-shadow_carga2" type="checkbox" onclick="chaveCarga2()">
+                            <label for="switch-shadow_carga2"></label>
+                          </div>                       
+                      </div>
+                      
+                  <%}%> 
+                          
+              </div>            
+            </div>
+          <%}%>        
+        </div>  
+      </div> <!-- /container -->
+      
+      <div class="container">
+        <!-- Componentes da parte principal do site -->
+        <div class="row">
+          <%if (Usina.bateriasContem){%>
+            <div class="col-md-6">          
+              <div class= "jumbotron">
+                <h1>Baterias</h1>         
+                  <p>
+                    <a class="btn btn-lg btn-primary" href="/baterias" role="button">Banco 1 »</a>
+                  </p>          
+              </div>        
+            </div>
+          <%}%>
+          <!--
+        <div class="col-md-6">
+          <div class= "jumbotron">
+            <h2>Alarmes e Log do Sistema</h2>
+              <p>
+                <a class="btn btn-lg btn-primary" href="/eolico" role="button">Alarmes »</a>
+              </p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="/eolico" role="button">Log de Eventos »</a>
+              </p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="eolico" role="button">Log de Alarmes »</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      -->
+  
+      </div> <!-- /container -->
+    
+      <% include partials/rodape %>

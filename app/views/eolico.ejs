@@ -1,0 +1,32 @@
+
+<% include partials/cabecalho %>
+<div class="container">
+    <div id="leituras" class="row">
+        <h1 id="tituloMedidores">Medidas do gerador eólico:</h1>
+        <div class="col-md-6">
+            <h2>Tensão:</h2>
+            <div id="tensaoEolico" class="displayMedidas" class="jumbotron" ></div>
+        </div>
+        <div class="col-md-6">
+                <h2>Corrente:</h2>
+            <div id="correnteEolico" class="displayMedidas" class="jumbotron" ></div>
+        </div>
+        
+        <div class="col-md-6">
+            <h2>Giro:</h2>
+            <div id="giro" class="displayMedidas" class="jumbotron" ></div>
+        </div>
+        <div class="col-md-6">
+                <h2>Freio:</h2>
+            <div id="freio" >
+                 <div class="switch__container"><!--retirado de https://willianjusten.com.br/criando-um-switch-button-com-css/-->
+                    <input id="switch-shadow" class="switch switch--shadow" type="checkbox" onclick="freio()">
+                    <label for="switch-shadow"></label>
+                </div>
+                <h3>Status: <span id="statusCatavento"></span></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/rodape %>

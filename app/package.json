@@ -1,0 +1,31 @@
+{
+  "name": "Sol_e_Vento",
+  "version": "0.0.1",
+  "description": "tentativa_de_fazer_a_parte_web_do_sistema",
+  "main": "/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eli",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "baseconvert": "^1.0.0",
+    "binstring": "^0.2.1",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "hashcode": "^1.0.3",
+    "jquery": "^3.3.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.1.8",
+    "mongoose": "^5.3.3",
+    "mysql": "^2.16.0",
+    "net": "^1.0.2",
+    "partials": "^0.1.0",
+    "sleep": "^5.2.3",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
+    "socketio": "^1.0.0"
+  }
+}
