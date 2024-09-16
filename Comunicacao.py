@@ -13,9 +13,9 @@ class Comunicacao(threading.Thread):
 	
 	def __init__(self):
 		super(Comunicacao, self).__init__()
-                self._stop = threading.Event()
-                #self.serv = socket(socket.AF_INET, socket.SOCK_STREAM)
-                self.serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		self._stop = threading.Event()
+		#self.serv = socket(socket.AF_INET, socket.SOCK_STREAM)
+		self.serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.serv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 
 		self.cliente = None
 		self.recebida = ''
@@ -38,7 +38,7 @@ class Comunicacao(threading.Thread):
 	def enviar(self):
 		#msg = raw_input()
 		try:
-			while (self.saida <> '^X'):
+			while (self.saida != '^X'):
 				time.sleep(0.5)
 				medidas = self.pegar_medidas()
 				#print self.recebida			
@@ -53,7 +53,7 @@ class Comunicacao(threading.Thread):
 	
 	def receber(self):
 		try:
-			while (self.saida <> '^X'):
+			while self.saida != '^X':
 				if self.cliente != None:
 					self.recebida = self.cliente.recv(1024)
 					try:
@@ -61,8 +61,8 @@ class Comunicacao(threading.Thread):
 							comando = Comando()
 							comando.executar(self.recebida)
 					except ValueError:
-						print "valor recebido nao eh um inteiro"
-						print str(self.recebida)
+						print("valor recebido nao eh um inteiro")
+						print(str(self.recebida))
 						exit(0)
 						#return self.recebido		
 		except KeyboardInterrupt:
@@ -99,25 +99,25 @@ class Comunicacao(threading.Thread):
 					#self.serv.close()
 					#self.thread_envio.join()
 					#self.thread_receber.join()
-					print "fechei o servidor"
+					print ("fechei o servidor")
 				except socket.error:
-					print "O cliente caiu"
+					print ("O cliente caiu")
 					
 		except KeyboardInterrupt:
 			self.serv.close()
 			self.thread_envio.join()
 			self.thread_receber.join()
-			print "fechei o servidor"
+			print ("fechei o servidor")
 		finally:
 			self.serv.close()
 			#self.thread_envio.join()
 			#self.thread_receber.join()
-			print "fechei o servidor"
+			print ("fechei o servidor")
 
 		#self.enviar()
 
 	def sair(self, sig, frame):
-		print "Voce precionou CTRL + C"	
+		print ("Voce precionou CTRL + C")	
 		return self._stop.isSet()
 		#self.pont_cliente.close()
 		#self.serv.close()
@@ -148,7 +148,7 @@ class Comunicacao(threading.Thread):
 		#thread_saida.join()
 		#c.cliente.close()
 		c.serv.close()
-		print "fechei o servidor"
+		print ("fechei o servidor")
 
 
 c = Comunicacao()
